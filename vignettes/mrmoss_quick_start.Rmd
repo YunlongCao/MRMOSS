@@ -1,0 +1,109 @@
+---
+title: "MR-MOSS Quick Start"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MR-MOSS Quick Start}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Overview
+
+MR-MOSS fits a likelihood-based multi-outcome Mendelian randomization model from
+harmonized GWAS summary statistics and a working outcome correlation matrix. The
+same fitted object can be used for outcome-specific, subset/domain-level, and
+all-outcome likelihood-ratio tests.
+
+This vignette uses only the toy files bundled with the package.
+
+## Load Toy Inputs
+
+```{r}
+library(MRMOSS)
+
+summary_path <- system.file("extdata", "toy_summary_stats.csv", package = "MRMOSS")
+cor_path <- system.file("extdata", "toy_outcome_correlation.csv", package = "MRMOSS")
+domain_path <- system.file("extdata", "toy_domain_map.csv", package = "MRMOSS")
+
+toy <- read_mrmoss_summary_stats(summary_path)
+R <- read_outcome_correlation(cor_path)
+domain_map <- read.csv(domain_path)
+
+str(toy[c("n1", "n2", "outcomes")])
+R
+domain_map
+```
+
+## Check Inputs
+
+```{r}
+checked <- check_mrmoss_inputs(
+  gamma_hat = toy$gamma_hat,
+  Gamma_hat = toy$Gamma_hat,
+  R = R,
+  n1 = toy$n1,
+  n2 = toy$n2
+)
+
+checked$min_eigenvalue
+checked$positive_definite
+```
+
+## Fit MR-MOSS
+
+```{r}
+fit <- fit_mrmoss(summary_stats = toy, R = R, maxiter = 500)
+
+fit$beta
+fit$iteration
+```
+
+## Likelihood-Ratio Tests
+
+```{r}
+outcome_lrt(fit)
+global_lrt(fit)
+domain_lrt(fit, domain_map)
+```
+
+Custom outcome subsets can be tested directly.
+
+```{r}
+subset_lrt(
+  fit,
+  subsets = list(first_two = c("outcome_1", "outcome_2"), third = "outcome_3")
+)
+```
+
+## Estimate a Working Correlation Matrix
+
+If null-variant outcome z-scores are available, estimate a working correlation
+matrix before fitting.
+
+```{r}
+set.seed(1)
+null_z <- matrix(rnorm(300), ncol = 3)
+colnames(null_z) <- toy$outcomes
+
+estimated_R <- estimate_outcome_correlation(null_z)
+estimated_R
+attr(estimated_R, "nearPD_used")
+```
+
+## Next Steps for Real Data
+
+For real data, replace the toy inputs with harmonized SNP-exposure and
+SNP-outcome summary statistics, a matching outcome correlation matrix, and an
+optional domain map. Confirm that the same outcome names appear in every file.
+
+MR-MOSS expects the real-data summary file to be prepared before fitting:
+instrument SNPs should be selected and LD-clumped, all exposure and outcome
+betas should be oriented to the row-level effect allele, unresolved palindromic
+or mismatched variants should be removed, and an effective scalar exposure and
+outcome sample size strategy should be documented. See the README and
+`scripts/04_template_real_gwas_analysis.R` for a copy-and-edit real-data
+analysis template.

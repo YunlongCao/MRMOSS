@@ -1,0 +1,9 @@
+bibentry(
+  bibtype = "Manual",
+  title = "MR-MOSS: Scalable Joint Mendelian Randomization of Correlated Outcomes Using Summary Statistics",
+  author = c(person("Yunlong", "Cao")),
+  year = "2026",
+  version = "1.0.0",
+  url = "https://github.com/YunlongCao/MRMOSS",
+  note = "Manuscript submission release. DOI to be added after Zenodo release."
+)

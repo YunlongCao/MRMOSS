@@ -1,0 +1,40 @@
+Package: MRMOSS
+Type: Package
+Title: Scalable Joint Mendelian Randomization of Correlated Outcomes Using Summary Statistics
+Version: 1.0.0
+Date: 2026-06-04
+Authors@R: c(
+    person("Yunlong", "Cao", role = c("aut", "cre"),
+           email = "157203291+YunlongCao@users.noreply.github.com")
+    )
+Author: Yunlong Cao
+Maintainer: Yunlong Cao <157203291+YunlongCao@users.noreply.github.com>
+Description: MR-MOSS fits a likelihood-based multi-outcome Mendelian
+    randomization model using harmonized GWAS summary statistics. It jointly
+    models SNP-exposure and SNP-outcome association estimates with a working
+    outcome correlation matrix, and provides outcome-specific, subset/domain-level
+    and all-outcome likelihood-ratio tests for correlated outcome panels.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: R (>= 4.1.0)
+Imports:
+    Matrix,
+    methods,
+    stats,
+    utils,
+    Rcpp
+LinkingTo:
+    Rcpp,
+    RcppArmadillo
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    withr,
+    yaml
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+URL: https://github.com/YunlongCao/MRMOSS
+BugReports: https://github.com/YunlongCao/MRMOSS/issues

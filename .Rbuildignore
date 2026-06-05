@@ -1,0 +1,9 @@
+^\.github$
+^\.gitignore$
+^cran-comments\.md$
+^CITATION\.cff$
+^LICENSE\.md$
+^data-raw$
+^docs$
+^examples$
+^release_audit$

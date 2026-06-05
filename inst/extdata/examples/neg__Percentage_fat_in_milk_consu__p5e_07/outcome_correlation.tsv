@@ -1,0 +1,4 @@
+outcome	Emotional_neglect	Physical_abuse	Sexual_abuse
+Emotional_neglect	1	0.282611056550596	0.141446133727824
+Physical_abuse	0.282611056550596	1	0.166940530712246
+Sexual_abuse	0.141446133727824	0.166940530712246	1

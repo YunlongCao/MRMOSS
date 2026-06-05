@@ -1,0 +1,14 @@
+field	value
+title	Beef consumption against Negative-control childhood maltreatment panel
+description	Processed manuscript-derived example with 5 harmonized complete-case instruments and 3 correlated outcomes. The IV set and working outcome-correlation matrix are precomputed from Supplementary Data 03 and 04.
+analysis	negative_control
+panel_id	O3_original
+exposure_id	Beef_consumption
+exposure	Beef consumption
+iv_threshold	5e-08
+n_instruments	5
+n_outcomes	3
+outcome_panel	Emotional_neglect, Physical_abuse, Sexual_abuse
+r_matrix_source	Supplementary Data 04 outcome correlation matrix
+iv_set_source	Supplementary Data 03 harmonized complete-case instruments
+sample_size_note	Sample sizes are parsed from Supplementary Data 01 metadata.

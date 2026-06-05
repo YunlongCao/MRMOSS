@@ -1,0 +1,14 @@
+summary_stats: inst/extdata/toy_summary_stats.csv
+outcome_correlation: inst/extdata/toy_outcome_correlation.csv
+domain_map: inst/extdata/toy_domain_map.csv
+maxiter: 500
+rd: 1
+seed: 20260604
+n_snps: 80
+n_outcomes: 3
+exposure_sample_size: 100000
+outcome_sample_size: 90000
+true_beta:
+  - 0.16
+  - -0.08
+  - 0.06

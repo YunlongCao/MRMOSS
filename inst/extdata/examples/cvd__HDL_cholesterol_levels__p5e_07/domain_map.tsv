@@ -1,0 +1,6 @@
+outcome	domain	outcome_id	outcome_name
+AP	cardiovascular	Angina_pectoris	Angina pectoris
+CAD	cardiovascular	Coronary_atherosclerosis	Coronary atherosclerosis
+IHD	cardiovascular	Ischemic_Heart_Disease	Ischemic heart disease
+MI	cardiovascular	Myocardial_infarction	Myocardial infarction
+UA	cardiovascular	Unstable_angina	Unstable angina

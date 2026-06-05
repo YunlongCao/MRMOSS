@@ -1,0 +1,14 @@
+field	value
+title	LDL direct levels against Cardiovascular positive-control panel
+description	Processed manuscript-derived example with 454 harmonized complete-case instruments and 5 correlated outcomes. The IV set and working outcome-correlation matrix are precomputed from Supplementary Data 03 and 04.
+analysis	cvd_positive_control
+panel_id	cardiovascular_positive_control
+exposure_id	LDL_direct_levels
+exposure	LDL direct levels
+iv_threshold	5e-07
+n_instruments	454
+n_outcomes	5
+outcome_panel	AP, CAD, IHD, MI, UA
+r_matrix_source	Supplementary Data 04 outcome correlation matrix
+iv_set_source	Supplementary Data 03 harmonized complete-case instruments
+sample_size_note	Sample sizes are parsed from Supplementary Data 01 metadata.

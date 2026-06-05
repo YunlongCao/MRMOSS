@@ -1,0 +1,7 @@
+library(MRMOSS)
+set.seed(1)
+z <- matrix(rnorm(300), ncol = 3)
+colnames(z) <- paste0("outcome_", 1:3)
+R <- estimate_outcome_correlation(z)
+print(R)
+print(attributes(R)[c("nearPD_used", "min_eigenvalue")])
