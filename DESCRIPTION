@@ -1,0 +1,29 @@
+Package: MRMOSS
+Type: Package
+Title: Scalable Joint Mendelian Randomization of Correlated Outcomes Using Summary Statistics
+Version: 1.0.0
+Date: 2026-10-14
+Authors@R: person("Yunlong", "Cao", role = c("aut", "cre"),
+    email = "157203291+YunlongCao@users.noreply.github.com")
+Description: Fits the MR-MOSS model, which relates one exposure to many
+    correlated outcomes using GWAS summary statistics, and provides likelihood
+    ratio tests for the causal effect on each outcome, on prespecified sets of
+    outcomes and on all outcomes together.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports:
+    Matrix,
+    Rcpp,
+    stats,
+    utils
+LinkingTo:
+    Rcpp,
+    RcppArmadillo
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+URL: https://github.com/YunlongCao/MRMOSS
+BugReports: https://github.com/YunlongCao/MRMOSS/issues

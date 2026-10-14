@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "MRMOSS: Scalable Joint Mendelian Randomization of Correlated Outcomes Using Summary Statistics"
+authors:
+  - family-names: "Cao"
+    given-names: "Yunlong"
+version: "1.0.0"
+date-released: "2026-10-14"
+repository-code: "https://github.com/YunlongCao/MRMOSS"
+license: "MIT"
